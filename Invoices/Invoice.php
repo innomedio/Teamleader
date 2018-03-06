@@ -129,6 +129,11 @@ class Invoice
     private $customFields;
 
     /**
+     * @var bool
+     */
+    private $draft;
+
+    /**
      * @return int
      */
     public function getId()
@@ -657,6 +662,26 @@ class Invoice
             $return['comments'] = $this->getComments();
         }
 
+        if ($this->isDraft()) {
+            $return['draft_invoice'] = true;
+        }
+
         return $return;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDraft()
+    {
+        return $this->draft;
+    }
+
+    /**
+     * @param bool $draft
+     */
+    public function setDraft($draft)
+    {
+        $this->draft = $draft;
     }
 }
