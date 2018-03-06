@@ -134,6 +134,11 @@ class Invoice
     private $draft;
 
     /**
+     * @var string|null
+     */
+    private $paymentTerm = null;
+
+    /**
      * @return int
      */
     public function getId()
@@ -666,6 +671,10 @@ class Invoice
             $return['draft_invoice'] = true;
         }
 
+        if ($this->getPaymentTerm()) {
+            $return['payment_term'] = $this->getPaymentTerm();
+        }
+
         return $return;
     }
 
@@ -683,5 +692,21 @@ class Invoice
     public function setDraft($draft)
     {
         $this->draft = $draft;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPaymentTerm()
+    {
+        return $this->paymentTerm;
+    }
+
+    /**
+     * @param mixed $paymentTerm
+     */
+    public function setPaymentTerm($paymentTerm)
+    {
+        $this->paymentTerm = $paymentTerm;
     }
 }
