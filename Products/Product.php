@@ -22,7 +22,7 @@ class Product
     /**
      * @var float
      */
-    private $price;
+    private $prices;
 
     /**
      * @var string
@@ -74,22 +74,6 @@ class Product
     public function setName($name)
     {
         $this->name = $name;
-    }
-
-    /**
-     * @return float
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
-     * @param float $price
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
     }
 
     /**
@@ -219,5 +203,21 @@ class Product
         }
 
         return $return;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPrices()
+    {
+        return $this->prices;
+    }
+
+    /**
+     * @param float $prices
+     */
+    public function setPrices($prices)
+    {
+        $this->prices = $prices;
     }
 }
